@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موقع التميز في المحاسبة</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* ✨ حركة العنوان */
+@keyframes glowMove {
+    0% {
+        transform: translateY(0px) scale(1);
+        text-shadow: 0 0 10px red;
+    }
+    50% {
+        transform: translateY(-10px) scale(1.05);
+        text-shadow: 0 0 25px red;
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+        text-shadow: 0 0 10px red;
+    }
+}
+
+.site-title {
+    color: red;
+    font-size: 28px;
+    margin-bottom: 20px;
+    animation: glowMove 2s infinite ease-in-out;
+}
+
+.container {
+    background-color: #111;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 0 20px rgba(255,0,0,0.4);
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+.switch {
+    color: white;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="site-title">
+    موقع التميز في المحاسبة
+</div>
+
+<div class="container">
+    <h2 id="title">تسجيل الدخول</h2>
+
+    <input type="email" id="email" placeholder="البريد الإلكتروني">
+    <input type="password" id="password" placeholder="كلمة المرور">
+
+    <button onclick="login()">دخول</button>
+    <button onclick="register()">إنشاء حساب</button>
+
+    <div class="switch" onclick="toggleLang()">
+        🌍 تغيير اللغة
+    </div>
+</div>
+
+<script>
+let currentLang = "ar";
+
+function login(){
+    alert(currentLang === "ar" ? "تم تسجيل الدخول (تجريبي)" : "Login Successful (Demo)");
+}
+
+function register(){
+    alert(currentLang === "ar" ? "تم إنشاء الحساب (تجريبي)" : "Account Created (Demo)");
+}
+
+function toggleLang(){
+    if(currentLang === "ar"){
+        document.documentElement.lang = "en";
+        document.getElementById("title").innerText = "Login";
+        document.querySelector(".site-title").innerText = "Excellence Accounting Website";
+        document.getElementById("email").placeholder = "Email";
+        document.getElementById("password").placeholder = "Password";
+        currentLang = "en";
+    } else {
+        document.documentElement.lang = "ar";
+        document.getElementById("title").innerText = "تسجيل الدخول";
+        document.querySelector(".site-title").innerText = "موقع التميز في المحاسبة";
+        document.getElementById("email").placeholder = "البريد الإلكتروني";
+        document.getElementById("password").placeholder = "كلمة المرور";
+        currentLang = "ar";
+    }
+}
+</script>
+
+</body>
+</html>
